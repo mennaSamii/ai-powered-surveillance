@@ -10,11 +10,18 @@ import numpy as np
 
 from queue import Queue
 from threading import Thread, Lock
-from HumanDetection.ModelEndpoint import ModelEndpoint
-x=input("enter your camera id")
+from HumanFallDetection.Model1Endpoint import Model1Endpoint
+from WeaponDetection.Model2Endpoint import Model2Endpoint
+from FaceRecognition.Model3Endpoint import Model3Endpoint
+#x=input("enter your camera id")
+x=0
 source=int(x)
 #print (type (source))
 frame_queue = queue.Queue()  # Create a queue to store frames
+src='F:/final-integration/frames/incident_fainting/frame-1713393883.932.jpg'
+#ff=None
+weight_path='F://final-integration//WeaponDetection//runs//train//knifedetection014//weights//best.pt'
+#filename='F://final-integration//frames_for_subprocessor'
 # Define functions for camera_reader and frame_processor (replace with your implementation)
 class CamLoader:
     """Use threading to capture a frame from camera for faster frame load.
@@ -25,6 +32,7 @@ class CamLoader:
     """
     def __init__(self, camera, preprocess=None, ori_return=False):
         self.stream = cv2.VideoCapture(camera)
+        self.frame_sb = None
         #assert for testing 
         assert self.stream.isOpened(), 'Cannot read camera source!'
         self.fps = self.stream.get(cv2.CAP_PROP_FPS)
@@ -46,7 +54,7 @@ class CamLoader:
         self.t.start()
         c = 0
         while not self.ret:
-            print("gowa el loop ")
+            #print("gowa el loop ")
             time.sleep(0.1)
             c += 1
             if c > 20:
@@ -100,41 +108,61 @@ class CamLoader:
     def __exit__(self, exc_type, exc_val, exc_tb):
         if self.stream.isOpened():
             self.stream.release()
-    
+          
     def camera_reader(self):
         # Capture frames from camera and put them in frame_queue
 
-            frames = self.getitem()
+        frames = self.getitem()
+        frame_queue.put(frames)
+        #return frame_sb
+        #model1=ModelEndpoint()
+        #print (frame)
+        #model1.detect(frames)
             
-            frame_queue.put(frames)            
-            #model1=ModelEndpoint()
-            #print (frame)
-            #model1.detect(frames)
-             
-            #print("frame_queue")
+        #print("frame_queue")
 
 
             
-def frame_processor(fps_time, result_queue_model1, result_queue_model2):
-        print ("started frame_processor")
+def frame_processor(self,fps_time, result_queue_model1,result_queue_model2,result_queue_model3):
+        #print ("started frame_processor")
         while True:
             fps_time = time.time()
             frame=frame_queue.get()# Wait for the next frame
-            cv2.imwrite(f'F://final-integration//frames//frame-{fps_time:.3f}.jpg', frame)
+            #cv2.imwrite(f'F://final-integration//frames_for_subprocessor//frame-{fps_time:.3f}.jpg', frame)
             image = frame.copy()
+            image1= frame.copy()
             # Add FPS overlay (similar to your implementation)
-            model1=ModelEndpoint()
-            #print (frame)
-            #print (type(frame ))
-            
+            model1=Model1Endpoint()
             image=model1.preproc(image)
-            
             result_queue_model1=model1.detect(image)
-            print("result",result_queue_model1)
-            #print (detect_result)
-            # Delete the saved frame (if saved earlier)
-            os.remove(f'F://final-integration//frames//frame-{fps_time:.3f}.jpg')
-            #cv2.imshow('frame', frame)
+            print("\n result of model1",result_queue_model1,"\n")
+            
+            #detection of model2
+         
+            model2 =Model2Endpoint()
+            image1=model2.preproc(image1,640,32)
+            result_queue_model2=model2.detect_weapon(image1,weight_path,640)
+            print("\n result of model2",result_queue_model2,"\n")
+            
+            #face recognition model3 
+            if result_queue_model1 is not None  :
+                model31=Model3Endpoint
+                
+                points = result_queue_model1["bounding_box"]
+                result_queue_model3 =model31.face_recognotion_model1(image,points)
+                print("incedent result 1 ",result_queue_model3,result_queue_model1)
+                cv2.imwrite(f'F://final-integration//frames//incident_fainting//frame-{fps_time}.jpg', frame)
+            if result_queue_model2 is not None  :
+                model32=Model3Endpoint
+                result_queue_model3 =model32.face_recognotion_model2(frame)
+                print("incedent result 2 ",result_queue_model3,result_queue_model2)
+                cv2.imwrite(f'F://final-integration//frames//incedent_weapon//frame-{fps_time}.jpg', frame)
+
+            
+            #if result_queue_model1 is not None:
+              # cv2.imwrite(f'F://final-integration//frames//incident_fainting//frame-{fps_time:.3f}.jpg', frame)
+            #if result_queue_model2 is not None:
+             #   cv2.imwrite(f'F://final-integration//frames//incident_weapon//frame-{fps_time:.3f}.jpg', frame)
             if cv2.waitKey(3) & 0xFF == ord('q'):
                 break
 
@@ -146,11 +174,12 @@ def frame_processor(fps_time, result_queue_model1, result_queue_model2):
 
 class system_manager():
     def __init__(self):
-        print("thread opened ")
+        #print("thread opened ")
         # Queues
         #self.frame_queue = queue.Queue
         self.result_queue_model1 = queue.Queue()  # Specific queue for model 1 results
         self.result_queue_model2 = queue.Queue()  # Specific queue for model 2 results
+        self.result_queue_model3 = queue.Queue()  # Specific queue for model 2 results
         # ... (queues for other models)
 
         # Threads
@@ -159,13 +188,15 @@ class system_manager():
         #self.camera_reader.start()
 
         
-        self.frame_processor = threading.Thread(target=frame_processor, args=( fps_time,self.result_queue_model1, self.result_queue_model2))
+        self.frame_processor = threading.Thread(target=frame_processor, args=( self,fps_time,self.result_queue_model1, self.result_queue_model2,self.result_queue_model3))
         self.frame_processor.daemon = True
         self.frame_processor.start()
 
 
 if __name__ == '__main__':
     fps_time = 0
+    #print(torch.version.cuda)
+
     #modle1.detection()
     sys= system_manager()
     cam = CamLoader(source).start()

@@ -1,0 +1,5 @@
+
+HumanDetection/Models/sppe/fast_res101_320x256.pth
+HumanDetection/Models/sppe/fast_res50_256x192.pth
+HumanFallDetection/Models/sppe/fast_res101_320x256.pth
+HumanFallDetection/Models/sppe/fast_res50_256x192.pth
