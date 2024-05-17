@@ -1,13 +1,12 @@
 import multiprocessing as mp
 import queue
-import threading
-#cam loder imports 
+import threading 
 import os
 import cv2
 import time
 import torch
 import numpy as np
-
+from IncidentManagement import IncidentManagement,incident_queue
 from queue import Queue
 from threading import Thread, Lock
 from HumanFallDetection.Model1Endpoint import Model1Endpoint
@@ -18,9 +17,15 @@ x=0
 source=int(x)
 #print (type (source))
 frame_queue = queue.Queue()  # Create a queue to store frames
-src='F:/final-integration/frames/incident_fainting/frame-1713393883.932.jpg'
+#src='F:/final-integration/frames/incident_fainting/frame-1713393883.932.jpg'
 #ff=None
-weight_path='F://final-integration//WeaponDetection//runs//train//knifedetection014//weights//best.pt'
+weight_path='F://final-integration//WeaponDetection//runs//train//best5.pt'
+db_config = {
+'host': "127.0.0.1",
+'user': 'root',
+'password': '_Admine1234',
+'database': 'SecuritySystem'
+}
 #filename='F://final-integration//frames_for_subprocessor'
 # Define functions for camera_reader and frame_processor (replace with your implementation)
 class CamLoader:
@@ -36,6 +41,7 @@ class CamLoader:
         #assert for testing 
         assert self.stream.isOpened(), 'Cannot read camera source!'
         self.fps = self.stream.get(cv2.CAP_PROP_FPS)
+        #print("frame per seconed ",self.fps)
         self.frame_size = (int(self.stream.get(cv2.CAP_PROP_FRAME_WIDTH)),
                         int(self.stream.get(cv2.CAP_PROP_FRAME_HEIGHT)))
 
@@ -47,6 +53,7 @@ class CamLoader:
         self.ori = ori_return
 
         self.preprocess_fn = preprocess
+        
 
     def start(self):
         self.t = Thread(target=self.update, args=())  # , daemon=True)
@@ -77,7 +84,6 @@ class CamLoader:
             #print ("henna ya menna")
             self.camera_reader()
             
-
     def grabbed(self):
         """Return `True` if can read a frame."""
         return self.ret
@@ -114,6 +120,7 @@ class CamLoader:
 
         frames = self.getitem()
         frame_queue.put(frames)
+        #print ("el queue",frame_queue.qsize())
         #return frame_sb
         #model1=ModelEndpoint()
         #print (frame)
@@ -123,11 +130,27 @@ class CamLoader:
 
 
             
-def frame_processor(self,fps_time, result_queue_model1,result_queue_model2,result_queue_model3):
+def frame_processor(self,fps_time):
         #print ("started frame_processor")
         while True:
-            fps_time = time.time()
-            frame=frame_queue.get()# Wait for the next frame
+            fps = time.time()
+            fps_time = time.ctime()
+            fps_time=fps_time[11:19]
+            print ("frame time ",fps_time[11:19])
+            # Optional: Convert the timestamp to a human-readable format (less precise)
+            # This uses time.ctime() which provides a string representation but 
+            # may not be in the desired format for all use cases.
+            # readable_time = time.ctime(current_time)
+
+            # Print the current time as the number of seconds since the epoch
+            print(fps_time)
+
+            
+            
+            frame=frame_queue.get()
+            incidents,incident1,incident2=None,None,None
+            # Wait for the next frame
+            #print ("el queue",frame_queue.qsize())
             #cv2.imwrite(f'F://final-integration//frames_for_subprocessor//frame-{fps_time:.3f}.jpg', frame)
             image = frame.copy()
             image1= frame.copy()
@@ -136,6 +159,7 @@ def frame_processor(self,fps_time, result_queue_model1,result_queue_model2,resul
             image=model1.preproc(image)
             result_queue_model1=model1.detect(image)
             print("\n result of model1",result_queue_model1,"\n")
+            
             
             #detection of model2
          
@@ -149,15 +173,55 @@ def frame_processor(self,fps_time, result_queue_model1,result_queue_model2,resul
                 model31=Model3Endpoint
                 
                 points = result_queue_model1["bounding_box"]
-                result_queue_model3 =model31.face_recognotion_model1(image,points)
-                print("incedent result 1 ",result_queue_model3,result_queue_model1)
-                cv2.imwrite(f'F://final-integration//frames//incident_fainting//frame-{fps_time}.jpg', frame)
+                result_queue_model3 =model31.face_reconition_model1(image,points)
+                print("incident result 1 ",result_queue_model3,result_queue_model1)
+                filename =(f'F://final-integration//frames//incident_fainting//frame-{fps}.jpg')
+                cv2.imwrite(filename, frame)
+                incident1={
+                    "type":'falling down',
+                    "json_model" : result_queue_model1,
+                    "frame_path" : filename,
+                    "frame_time" :fps_time,
+                    "json_model_FaceRecognition" : result_queue_model3,
+                    "Camera_ID":'0'
+                    
+                }
             if result_queue_model2 is not None  :
                 model32=Model3Endpoint
-                result_queue_model3 =model32.face_recognotion_model2(frame)
+                result_queue_model3 =model32.face_reconition_model2(frame)
                 print("incedent result 2 ",result_queue_model3,result_queue_model2)
-                cv2.imwrite(f'F://final-integration//frames//incedent_weapon//frame-{fps_time}.jpg', frame)
+                filename=(f'F://final-integration//frames//incedent_weapon//frame-{fps}.jpg')
+                cv2.imwrite(filename, frame)
+                incident2={
+                    "type": 'weapon detected',
+                    "json_model" : result_queue_model2,
+                    "frame_path" : filename,
+                    "frame_time" : fps_time,
+                    "json_model_FaceRecognition" : result_queue_model3,
+                    "Camera_ID":'0'
+                    
+                }
+            if incident2 is not None and incident1 is not None:
+                #print("ady el incidents ",incident1,incident2)
+                incidents={"incidents":[
+                        incident1,
+                        incident2
+                ]}
+            elif incident2 is not None :
+                incidents={"incidents":[
+                    incident2
+                ]}
+            elif incident1 is not None :
+                incidents={"incidents":[
+                    incident1
+                ]}
+            #incidents={'incidents': [{'type': 'falling down', 'json_model': {'action_name': 'Sitting', 'bounding_box': {'start_point': {'x': 55, 'y': 115}, 'end_point': {'x': 361, 'y': 364}}}, 'frame_path': 'F://final-integration//frames//incident_fainting//frame-1715809190.1674523.jpg', 'frame_number': 1715809190.1674523, 'json_model_FaceRecognition': {'Faces': [{'person_name': 'menna', 'percent': '83.23%'}]}, 'Camera_ID': '0'}
+                                   # ,{'type': 'weapon detected', 'json_model': '1 knife, ', 'frame_path': 'F://final-integration//frames//incedent_weapon//frame-1715809190.1674523.jpg', 'frame_number': 1715809190.1674523, 'json_model_FaceRecognition': {'Faces': [{'person_name': 'menna', 'percent': '84.85%'}]}, 'Camera_ID': '0'}]}
 
+            if incidents is not None :
+                
+                incident_queue.put(incidents)
+            frame_queue.task_done()
             
             #if result_queue_model1 is not None:
               # cv2.imwrite(f'F://final-integration//frames//incident_fainting//frame-{fps_time:.3f}.jpg', frame)
@@ -166,20 +230,20 @@ def frame_processor(self,fps_time, result_queue_model1,result_queue_model2,resul
             if cv2.waitKey(3) & 0xFF == ord('q'):
                 break
 
-            # Separate frame (if necessary)
-            # Process frame with model1 and put result in result_queue_model1
-            # Process frame with model2 and put result in result_queue_model2
-            # ... (for other models)
-
+def process_incident(self,fps_time):
+    fps_time=0
+    while True:
+        IncidentManagement(db_config).ProcessIncident()
+    
 
 class system_manager():
     def __init__(self):
         #print("thread opened ")
         # Queues
         #self.frame_queue = queue.Queue
-        self.result_queue_model1 = queue.Queue()  # Specific queue for model 1 results
-        self.result_queue_model2 = queue.Queue()  # Specific queue for model 2 results
-        self.result_queue_model3 = queue.Queue()  # Specific queue for model 2 results
+        #self.result_queue_model1 = queue.Queue()  # Specific queue for model 1 results
+        #self.result_queue_model2 = queue.Queue()  # Specific queue for model 2 results
+        #self.result_queue_model3 = queue.Queue()  # Specific queue for model 3 results
         # ... (queues for other models)
 
         # Threads
@@ -188,9 +252,12 @@ class system_manager():
         #self.camera_reader.start()
 
         
-        self.frame_processor = threading.Thread(target=frame_processor, args=( self,fps_time,self.result_queue_model1, self.result_queue_model2,self.result_queue_model3))
+        self.frame_processor = threading.Thread(target=frame_processor, args=( self,fps_time))
         self.frame_processor.daemon = True
         self.frame_processor.start()
+        self.process_incident = threading.Thread(target=process_incident, args=(self,fps_time))
+        self.process_incident.daemon = True
+        self.process_incident.start()
 
 
 if __name__ == '__main__':

@@ -31,7 +31,7 @@ class Model3Endpoint:
     le = pickle.loads(open("FaceRecognition/output/le.pickle", "rb").read())
 
     # loop over frames from the video file stream
-    def face_recognotion_model1 (frame,points):
+    def face_reconition_model1 (frame,points):
         
         
     
@@ -69,6 +69,8 @@ class Model3Endpoint:
         detections = detector.forward()
         #print("detection ",detections)
         # loop over the detections
+        person  = None
+        content= {"Faces":[]}
         for i in range(0, detections.shape[2]):
         # extract the confidence (i.e., probability) associated with the prediction
             confidence = detections[0, 0, i, 2]
@@ -102,13 +104,18 @@ class Model3Endpoint:
                 name = le.classes_[j]
     
                 # return text along with the associated probability
-                text = "{}: {:.2f}%".format(name, proba * 100)
+                text = "{}".format(name)
+                percent ="{:.2f}%".format( proba * 100)
                 if text is not None:
-                    #print(text)
-                    return text
+                    content.get ("Faces").append( {
+                        "person_name": text,
+                        "percent":percent
+                    })
+        person=content
+        return person
         # update the FPS counter
         #fps.update()
-    def face_recognotion_model2(frame):
+    def face_reconition_model2(frame):
             # resize the frame to have a width of 600 pixels (while maintaining the aspect ratio), and then grab the image dimensions
         frame = imutils.resize(frame, width=600)
         (h, w) = frame.shape[:2]
@@ -121,9 +128,11 @@ class Model3Endpoint:
         # apply OpenCV's deep learning-based face detector to localize faces in the input image
         detector.setInput(imageBlob)
         detections = detector.forward()
-
+        person  = None
+        content= {"Faces":[]}
         # loop over the detections
         for i in range(0, detections.shape[2]):
+            #print("conent f awel el for loop",content)
             # extract the confidence (i.e., probability) associated with the prediction
             confidence = detections[0, 0, i, 2]
 
@@ -149,14 +158,27 @@ class Model3Endpoint:
 
                 # perform classification to recognize the face
                 preds = recognizer.predict_proba(vec)[0]
+                #print("prediction face reconition",preds)
                 j = np.argmax(preds)
                 proba = preds[j]
                 name = le.classes_[j]
 
                 # draw the bounding box of the face along with the associated probability
-                text = "{}: {:.2f}%".format(name, proba * 100)
+                #text = "{}: {:.2f}%".format(name, proba * 100)
+                #print(text)
+                #y = startY - 10 if startY - 10 > 10 else startY + 10
+                text = "{}".format(name)
+                percent ="{:.2f}%".format( proba * 100)
                 if text is not None:
+                    #print(content)
+                # Create JSON object
+                    content.get ("Faces").append( {
+                        "person_name": text,
+                        "percent":percent
+                    })
                     #print(text)
-                    return text
+        
+        person=content
+        return person
 
     
