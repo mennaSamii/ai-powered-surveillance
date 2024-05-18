@@ -1,0 +1,29 @@
+2024-03-14 13:35:24,099 INFO    StreamThr :13396 [internal.py:wandb_internal():86] W&B internal server running at pid: 13396, started at: 2024-03-14 13:35:24.098158
+2024-03-14 13:35:24,112 DEBUG   HandlerThread:13396 [handler.py:handle_request():146] handle_request: status
+2024-03-14 13:35:24,119 INFO    WriterThread:13396 [datastore.py:open_for_write():87] open: E:\Gun-Detection-master\wandb\offline-run-20240314_133524-g9ihjuvd\run-g9ihjuvd.wandb
+2024-03-14 13:35:24,247 DEBUG   HandlerThread:13396 [handler.py:handle_request():146] handle_request: run_start
+2024-03-14 13:35:25,631 DEBUG   HandlerThread:13396 [system_info.py:__init__():26] System info init
+2024-03-14 13:35:25,631 DEBUG   HandlerThread:13396 [system_info.py:__init__():41] System info init done
+2024-03-14 13:35:25,631 INFO    HandlerThread:13396 [system_monitor.py:start():194] Starting system monitor
+2024-03-14 13:35:25,638 INFO    HandlerThread:13396 [system_monitor.py:probe():214] Collecting system info
+2024-03-14 13:35:25,639 INFO    SystemMonitor:13396 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-03-14 13:35:25,643 INFO    SystemMonitor:13396 [interfaces.py:start():190] Started cpu monitoring
+2024-03-14 13:35:25,651 INFO    SystemMonitor:13396 [interfaces.py:start():190] Started disk monitoring
+2024-03-14 13:35:25,655 INFO    SystemMonitor:13396 [interfaces.py:start():190] Started gpu monitoring
+2024-03-14 13:35:25,657 DEBUG   HandlerThread:13396 [system_info.py:probe():150] Probing system
+2024-03-14 13:35:25,662 DEBUG   HandlerThread:13396 [system_info.py:_probe_git():135] Probing git
+2024-03-14 13:35:25,666 INFO    SystemMonitor:13396 [interfaces.py:start():190] Started memory monitoring
+2024-03-14 13:35:25,675 INFO    SystemMonitor:13396 [interfaces.py:start():190] Started network monitoring
+2024-03-14 13:35:25,769 DEBUG   HandlerThread:13396 [system_info.py:_probe_git():143] Probing git done
+2024-03-14 13:35:25,771 DEBUG   HandlerThread:13396 [system_info.py:probe():198] Probing system done
+2024-03-14 13:35:25,771 DEBUG   HandlerThread:13396 [system_monitor.py:probe():223] {'os': 'Windows-10-10.0.22621-SP0', 'python': '3.11.7', 'heartbeatAt': '2024-03-14T11:35:25.657909', 'startedAt': '2024-03-14T11:35:24.041986', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': 'E:\\Gun-Detection-master\\train.py', 'codePathLocal': 'train.py', 'codePath': 'train.py', 'git': {'remote': 'https://github.com/Jawabreh0/Gun-Detection.git', 'commit': 'b45ae7393eab1922cb649ebf0920401e6d212103'}, 'email': 'm.mohmed3435@su.edu.eg', 'root': 'E:/Gun-Detection-master', 'host': 'DESKTOP-RLA4IJF', 'username': 'Samy', 'executable': 'c:\\Users\\Samy\\AppData\\Local\\Programs\\Python\\Python311\\python.exe', 'cpu_count': 10, 'cpu_count_logical': 12, 'cpu_freq': {'current': 1700.0, 'min': 0.0, 'max': 1700.0}, 'cpu_freq_per_core': [{'current': 1700.0, 'min': 0.0, 'max': 1700.0}], 'disk': {'/': {'total': 217.15130615234375, 'used': 10.92718505859375}}, 'gpu': 'NVIDIA GeForce MX570 A', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce MX570 A', 'memory_total': 2147483648}], 'memory': {'total': 15.641067504882812}}
+2024-03-14 13:35:25,771 INFO    HandlerThread:13396 [system_monitor.py:probe():224] Finished collecting system info
+2024-03-14 13:35:25,771 INFO    HandlerThread:13396 [system_monitor.py:probe():227] Publishing system info
+2024-03-14 13:35:25,772 INFO    HandlerThread:13396 [system_monitor.py:probe():229] Finished publishing system info
+2024-03-14 13:35:26,023 DEBUG   HandlerThread:13396 [handler.py:handle_request():146] handle_request: python_packages
+2024-03-14 13:35:27,714 ERROR   gpu       :13396 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2024-03-14 13:35:27,714 ERROR   gpu       :13396 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2024-03-14 13:35:29,143 DEBUG   HandlerThread:13396 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 13:35:29,143 DEBUG   SenderThread:13396 [sender.py:send_request():405] send_request: status_report
+2024-03-14 13:35:30,196 ERROR   gpu       :13396 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2024-03-14 13:35:30,196 ERROR   gpu       :13396 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error

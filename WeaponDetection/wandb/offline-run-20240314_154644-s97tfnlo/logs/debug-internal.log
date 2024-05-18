@@ -1,0 +1,83 @@
+2024-03-14 15:46:44,220 INFO    StreamThr :12184 [internal.py:wandb_internal():86] W&B internal server running at pid: 12184, started at: 2024-03-14 15:46:44.219573
+2024-03-14 15:46:44,220 DEBUG   HandlerThread:12184 [handler.py:handle_request():146] handle_request: status
+2024-03-14 15:46:44,220 INFO    WriterThread:12184 [datastore.py:open_for_write():87] open: E:\Gun-Detection-master\wandb\offline-run-20240314_154644-s97tfnlo\run-s97tfnlo.wandb
+2024-03-14 15:46:44,472 DEBUG   HandlerThread:12184 [handler.py:handle_request():146] handle_request: run_start
+2024-03-14 15:46:44,519 DEBUG   HandlerThread:12184 [system_info.py:__init__():26] System info init
+2024-03-14 15:46:44,519 DEBUG   HandlerThread:12184 [system_info.py:__init__():41] System info init done
+2024-03-14 15:46:44,536 INFO    HandlerThread:12184 [system_monitor.py:start():194] Starting system monitor
+2024-03-14 15:46:44,536 INFO    SystemMonitor:12184 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-03-14 15:46:44,536 INFO    HandlerThread:12184 [system_monitor.py:probe():214] Collecting system info
+2024-03-14 15:46:44,544 INFO    SystemMonitor:12184 [interfaces.py:start():190] Started cpu monitoring
+2024-03-14 15:46:44,545 INFO    SystemMonitor:12184 [interfaces.py:start():190] Started disk monitoring
+2024-03-14 15:46:44,545 INFO    SystemMonitor:12184 [interfaces.py:start():190] Started gpu monitoring
+2024-03-14 15:46:44,554 INFO    SystemMonitor:12184 [interfaces.py:start():190] Started memory monitoring
+2024-03-14 15:46:44,554 DEBUG   HandlerThread:12184 [system_info.py:probe():150] Probing system
+2024-03-14 15:46:44,554 DEBUG   HandlerThread:12184 [system_info.py:_probe_git():135] Probing git
+2024-03-14 15:46:44,569 INFO    SystemMonitor:12184 [interfaces.py:start():190] Started network monitoring
+2024-03-14 15:46:44,641 DEBUG   HandlerThread:12184 [system_info.py:_probe_git():143] Probing git done
+2024-03-14 15:46:44,641 DEBUG   HandlerThread:12184 [system_info.py:probe():198] Probing system done
+2024-03-14 15:46:44,641 DEBUG   HandlerThread:12184 [system_monitor.py:probe():223] {'os': 'Windows-10-10.0.22621-SP0', 'python': '3.11.7', 'heartbeatAt': '2024-03-14T13:46:44.554774', 'startedAt': '2024-03-14T13:46:44.211073', 'docker': None, 'cuda': None, 'args': ('--device', '0', '--batch-size', '16', '--epochs', '100', '--img', '640', '640', '--data', 'data/custom_data.yaml', '--hyp', 'data/hyp.scratch.custom.yaml', '--cfg', 'cfg/training/yolov7-custom.yaml', '--weight', 'yolov7.pt', '--name', 'yolov7-custom'), 'state': 'running', 'program': 'E:\\Gun-Detection-master\\train.py', 'codePathLocal': 'train.py', 'codePath': 'train.py', 'git': {'remote': 'https://github.com/Jawabreh0/Gun-Detection.git', 'commit': 'b45ae7393eab1922cb649ebf0920401e6d212103'}, 'email': 'm.mohmed3435@su.edu.eg', 'root': 'E:/Gun-Detection-master', 'host': 'DESKTOP-RLA4IJF', 'username': 'Samy', 'executable': 'C:\\Users\\Samy\\AppData\\Local\\Programs\\Python\\Python311\\python.exe', 'cpu_count': 10, 'cpu_count_logical': 12, 'cpu_freq': {'current': 1700.0, 'min': 0.0, 'max': 1700.0}, 'cpu_freq_per_core': [{'current': 1700.0, 'min': 0.0, 'max': 1700.0}], 'disk': {'/': {'total': 217.15130615234375, 'used': 29.1204833984375}}, 'gpu': 'NVIDIA GeForce MX570 A', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce MX570 A', 'memory_total': 2147483648}], 'memory': {'total': 15.641067504882812}}
+2024-03-14 15:46:44,641 INFO    HandlerThread:12184 [system_monitor.py:probe():224] Finished collecting system info
+2024-03-14 15:46:44,641 INFO    HandlerThread:12184 [system_monitor.py:probe():227] Publishing system info
+2024-03-14 15:46:44,645 INFO    HandlerThread:12184 [system_monitor.py:probe():229] Finished publishing system info
+2024-03-14 15:46:44,769 DEBUG   HandlerThread:12184 [handler.py:handle_request():146] handle_request: python_packages
+2024-03-14 15:46:49,256 DEBUG   HandlerThread:12184 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:46:49,256 DEBUG   SenderThread:12184 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:46:54,307 DEBUG   HandlerThread:12184 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:46:54,307 DEBUG   SenderThread:12184 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:46:56,709 ERROR   gpu       :12184 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2024-03-14 15:46:56,709 ERROR   gpu       :12184 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2024-03-14 15:46:59,353 DEBUG   HandlerThread:12184 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:46:59,353 DEBUG   SenderThread:12184 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:47:04,401 DEBUG   HandlerThread:12184 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:47:04,401 DEBUG   SenderThread:12184 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:47:07,214 ERROR   gpu       :12184 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2024-03-14 15:47:07,214 ERROR   gpu       :12184 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2024-03-14 15:47:09,450 DEBUG   HandlerThread:12184 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:47:09,450 DEBUG   SenderThread:12184 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:47:14,496 DEBUG   HandlerThread:12184 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:47:14,496 DEBUG   SenderThread:12184 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:47:19,547 DEBUG   HandlerThread:12184 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:47:19,547 DEBUG   SenderThread:12184 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:47:24,595 DEBUG   HandlerThread:12184 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:47:24,595 DEBUG   SenderThread:12184 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:47:28,224 ERROR   gpu       :12184 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2024-03-14 15:47:29,645 DEBUG   HandlerThread:12184 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:47:29,645 DEBUG   SenderThread:12184 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:47:34,699 DEBUG   HandlerThread:12184 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:47:34,699 DEBUG   SenderThread:12184 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:47:38,754 ERROR   gpu       :12184 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2024-03-14 15:47:39,750 DEBUG   HandlerThread:12184 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:47:39,750 DEBUG   SenderThread:12184 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:47:44,577 DEBUG   SystemMonitor:12184 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2024-03-14 15:47:44,813 DEBUG   HandlerThread:12184 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:47:44,813 DEBUG   SenderThread:12184 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:47:47,237 ERROR   gpu       :12184 [interfaces.py:aggregate():161] Failed to serialize metric: [WinError 1455] The paging file is too small for this operation to complete
+2024-03-14 15:47:47,237 ERROR   gpu       :12184 [interfaces.py:aggregate():161] Failed to serialize metric: [WinError 1455] The paging file is too small for this operation to complete
+2024-03-14 15:47:47,246 ERROR   gpu       :12184 [interfaces.py:aggregate():161] Failed to serialize metric: [WinError 1455] The paging file is too small for this operation to complete
+2024-03-14 15:47:47,248 ERROR   gpu       :12184 [interfaces.py:aggregate():161] Failed to serialize metric: [WinError 1455] The paging file is too small for this operation to complete
+2024-03-14 15:47:47,248 ERROR   gpu       :12184 [interfaces.py:aggregate():161] Failed to serialize metric: [WinError 1455] The paging file is too small for this operation to complete
+2024-03-14 15:47:47,253 ERROR   gpu       :12184 [interfaces.py:aggregate():161] Failed to serialize metric: [WinError 1455] The paging file is too small for this operation to complete
+2024-03-14 15:47:47,253 ERROR   gpu       :12184 [interfaces.py:aggregate():161] Failed to serialize metric: [WinError 1455] The paging file is too small for this operation to complete
+2024-03-14 15:47:49,869 DEBUG   HandlerThread:12184 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:47:49,869 DEBUG   SenderThread:12184 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:47:51,281 ERROR   gpu       :12184 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2024-03-14 15:47:51,281 ERROR   gpu       :12184 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2024-03-14 15:47:54,893 DEBUG   HandlerThread:12184 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:47:54,893 DEBUG   SenderThread:12184 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:47:59,916 DEBUG   HandlerThread:12184 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:47:59,916 DEBUG   SenderThread:12184 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:48:01,784 ERROR   gpu       :12184 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2024-03-14 15:48:01,784 ERROR   gpu       :12184 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2024-03-14 15:48:04,944 DEBUG   HandlerThread:12184 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:48:04,945 DEBUG   SenderThread:12184 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:48:09,975 DEBUG   HandlerThread:12184 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:48:09,976 DEBUG   SenderThread:12184 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:48:12,300 ERROR   gpu       :12184 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2024-03-14 15:48:12,300 ERROR   gpu       :12184 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2024-03-14 15:48:14,999 DEBUG   HandlerThread:12184 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:48:14,999 DEBUG   SenderThread:12184 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:48:20,017 DEBUG   HandlerThread:12184 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:48:20,017 DEBUG   SenderThread:12184 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:48:25,108 DEBUG   HandlerThread:12184 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:48:25,109 DEBUG   SenderThread:12184 [sender.py:send_request():405] send_request: status_report

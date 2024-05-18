@@ -1,0 +1,53 @@
+{
+    "os": "Windows-10-10.0.22621-SP0",
+    "python": "3.11.7",
+    "heartbeatAt": "2024-03-14T09:07:53.426495",
+    "startedAt": "2024-03-14T09:07:52.007061",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "E:\\Gun-Detection-master\\train.py",
+    "codePathLocal": "train.py",
+    "codePath": "train.py",
+    "git": {
+        "remote": "https://github.com/Jawabreh0/Gun-Detection.git",
+        "commit": "b45ae7393eab1922cb649ebf0920401e6d212103"
+    },
+    "email": "m.mohmed3435@su.edu.eg",
+    "root": "E:/Gun-Detection-master",
+    "host": "DESKTOP-RLA4IJF",
+    "username": "Samy",
+    "executable": "c:\\Users\\Samy\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+    "cpu_count": 10,
+    "cpu_count_logical": 12,
+    "cpu_freq": {
+        "current": 1700.0,
+        "min": 0.0,
+        "max": 1700.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 1700.0,
+            "min": 0.0,
+            "max": 1700.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 217.15130615234375,
+            "used": 10.92523193359375
+        }
+    },
+    "gpu": "NVIDIA GeForce MX570 A",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce MX570 A",
+            "memory_total": 2147483648
+        }
+    ],
+    "memory": {
+        "total": 15.641067504882812
+    }
+}

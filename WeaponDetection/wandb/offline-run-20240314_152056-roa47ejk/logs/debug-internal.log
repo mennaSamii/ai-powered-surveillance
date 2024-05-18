@@ -1,0 +1,102 @@
+2024-03-14 15:20:56,705 INFO    StreamThr :1716 [internal.py:wandb_internal():86] W&B internal server running at pid: 1716, started at: 2024-03-14 15:20:56.705038
+2024-03-14 15:20:56,705 DEBUG   HandlerThread:1716 [handler.py:handle_request():146] handle_request: status
+2024-03-14 15:20:56,710 INFO    WriterThread:1716 [datastore.py:open_for_write():87] open: E:\Gun-Detection-master\wandb\offline-run-20240314_152056-roa47ejk\run-roa47ejk.wandb
+2024-03-14 15:20:57,032 DEBUG   HandlerThread:1716 [handler.py:handle_request():146] handle_request: run_start
+2024-03-14 15:20:57,096 DEBUG   HandlerThread:1716 [system_info.py:__init__():26] System info init
+2024-03-14 15:20:57,096 DEBUG   HandlerThread:1716 [system_info.py:__init__():41] System info init done
+2024-03-14 15:20:57,096 INFO    HandlerThread:1716 [system_monitor.py:start():194] Starting system monitor
+2024-03-14 15:20:57,096 INFO    SystemMonitor:1716 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-03-14 15:20:57,102 INFO    HandlerThread:1716 [system_monitor.py:probe():214] Collecting system info
+2024-03-14 15:20:57,105 INFO    SystemMonitor:1716 [interfaces.py:start():190] Started cpu monitoring
+2024-03-14 15:20:57,105 INFO    SystemMonitor:1716 [interfaces.py:start():190] Started disk monitoring
+2024-03-14 15:20:57,105 INFO    SystemMonitor:1716 [interfaces.py:start():190] Started gpu monitoring
+2024-03-14 15:20:57,113 INFO    SystemMonitor:1716 [interfaces.py:start():190] Started memory monitoring
+2024-03-14 15:20:57,125 INFO    SystemMonitor:1716 [interfaces.py:start():190] Started network monitoring
+2024-03-14 15:20:57,130 DEBUG   HandlerThread:1716 [system_info.py:probe():150] Probing system
+2024-03-14 15:20:57,130 DEBUG   HandlerThread:1716 [system_info.py:_probe_git():135] Probing git
+2024-03-14 15:20:57,229 DEBUG   HandlerThread:1716 [system_info.py:_probe_git():143] Probing git done
+2024-03-14 15:20:57,229 DEBUG   HandlerThread:1716 [system_info.py:probe():198] Probing system done
+2024-03-14 15:20:57,232 DEBUG   HandlerThread:1716 [system_monitor.py:probe():223] {'os': 'Windows-10-10.0.22621-SP0', 'python': '3.11.7', 'heartbeatAt': '2024-03-14T13:20:57.130001', 'startedAt': '2024-03-14T13:20:56.695102', 'docker': None, 'cuda': None, 'args': ('--device', '0', '--batch-size', '16', '--epochs', '50', '--img', '640', '640', '--data', 'data/custom_data.yaml', '--hyp', 'data/hyp.scratch.custom.yaml', '--cfg', 'cfg/training/yolov7-custom.yaml', '--weight', 'yolov7.pt', '--name', 'yolov7-custom'), 'state': 'running', 'program': 'E:\\Gun-Detection-master\\train.py', 'codePathLocal': 'train.py', 'codePath': 'train.py', 'git': {'remote': 'https://github.com/Jawabreh0/Gun-Detection.git', 'commit': 'b45ae7393eab1922cb649ebf0920401e6d212103'}, 'email': 'm.mohmed3435@su.edu.eg', 'root': 'E:/Gun-Detection-master', 'host': 'DESKTOP-RLA4IJF', 'username': 'Samy', 'executable': 'C:\\Users\\Samy\\AppData\\Local\\Programs\\Python\\Python311\\python.exe', 'cpu_count': 10, 'cpu_count_logical': 12, 'cpu_freq': {'current': 1700.0, 'min': 0.0, 'max': 1700.0}, 'cpu_freq_per_core': [{'current': 1700.0, 'min': 0.0, 'max': 1700.0}], 'disk': {'/': {'total': 217.15130615234375, 'used': 28.56219482421875}}, 'gpu': 'NVIDIA GeForce MX570 A', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce MX570 A', 'memory_total': 2147483648}], 'memory': {'total': 15.641067504882812}}
+2024-03-14 15:20:57,232 INFO    HandlerThread:1716 [system_monitor.py:probe():224] Finished collecting system info
+2024-03-14 15:20:57,232 INFO    HandlerThread:1716 [system_monitor.py:probe():227] Publishing system info
+2024-03-14 15:20:57,232 INFO    HandlerThread:1716 [system_monitor.py:probe():229] Finished publishing system info
+2024-03-14 15:20:57,332 DEBUG   HandlerThread:1716 [handler.py:handle_request():146] handle_request: python_packages
+2024-03-14 15:21:01,743 DEBUG   HandlerThread:1716 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:21:01,745 DEBUG   SenderThread:1716 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:21:06,930 DEBUG   HandlerThread:1716 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:21:06,930 DEBUG   SenderThread:1716 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:21:12,001 DEBUG   HandlerThread:1716 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:21:12,003 DEBUG   SenderThread:1716 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:21:17,965 DEBUG   HandlerThread:1716 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:21:17,970 DEBUG   SenderThread:1716 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:21:23,430 DEBUG   HandlerThread:1716 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:21:23,430 DEBUG   SenderThread:1716 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:21:29,085 DEBUG   HandlerThread:1716 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:21:29,090 DEBUG   SenderThread:1716 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:21:34,179 DEBUG   HandlerThread:1716 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:21:34,179 DEBUG   SenderThread:1716 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:21:39,235 DEBUG   HandlerThread:1716 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:21:39,235 DEBUG   SenderThread:1716 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:21:43,678 ERROR   gpu       :1716 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2024-03-14 15:21:43,678 ERROR   gpu       :1716 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2024-03-14 15:21:44,274 DEBUG   HandlerThread:1716 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:21:44,275 DEBUG   SenderThread:1716 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:21:49,303 DEBUG   HandlerThread:1716 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:21:49,303 DEBUG   SenderThread:1716 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:21:54,345 DEBUG   HandlerThread:1716 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:21:54,345 DEBUG   SenderThread:1716 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:21:56,186 ERROR   gpu       :1716 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2024-03-14 15:21:56,189 ERROR   gpu       :1716 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2024-03-14 15:21:57,130 DEBUG   SystemMonitor:1716 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2024-03-14 15:21:59,372 DEBUG   HandlerThread:1716 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:21:59,374 DEBUG   SenderThread:1716 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:22:04,415 DEBUG   HandlerThread:1716 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:22:04,417 DEBUG   SenderThread:1716 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:22:08,750 ERROR   gpu       :1716 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2024-03-14 15:22:08,750 ERROR   gpu       :1716 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2024-03-14 15:22:09,432 DEBUG   HandlerThread:1716 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:22:09,432 DEBUG   SenderThread:1716 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:22:14,470 DEBUG   HandlerThread:1716 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:22:14,470 DEBUG   SenderThread:1716 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:22:19,521 DEBUG   HandlerThread:1716 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:22:19,521 DEBUG   SenderThread:1716 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:22:21,239 ERROR   gpu       :1716 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2024-03-14 15:22:21,240 ERROR   gpu       :1716 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2024-03-14 15:22:24,563 DEBUG   HandlerThread:1716 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:22:24,563 DEBUG   SenderThread:1716 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:22:29,616 DEBUG   HandlerThread:1716 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:22:29,616 DEBUG   SenderThread:1716 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:22:33,776 ERROR   gpu       :1716 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2024-03-14 15:22:33,777 ERROR   gpu       :1716 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2024-03-14 15:22:34,640 DEBUG   HandlerThread:1716 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:22:34,641 DEBUG   SenderThread:1716 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:22:39,676 DEBUG   HandlerThread:1716 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:22:39,676 DEBUG   SenderThread:1716 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:22:44,711 DEBUG   HandlerThread:1716 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:22:44,712 DEBUG   SenderThread:1716 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:22:46,334 ERROR   gpu       :1716 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2024-03-14 15:22:46,334 ERROR   gpu       :1716 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2024-03-14 15:22:49,755 DEBUG   HandlerThread:1716 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:22:49,755 DEBUG   SenderThread:1716 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:22:54,788 DEBUG   HandlerThread:1716 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:22:54,788 DEBUG   SenderThread:1716 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:22:58,846 ERROR   gpu       :1716 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2024-03-14 15:22:58,847 ERROR   gpu       :1716 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2024-03-14 15:22:59,822 DEBUG   HandlerThread:1716 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:22:59,822 DEBUG   SenderThread:1716 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:23:04,845 DEBUG   HandlerThread:1716 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:23:04,845 DEBUG   SenderThread:1716 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:23:09,425 ERROR   gpu       :1716 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2024-03-14 15:23:09,425 ERROR   gpu       :1716 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2024-03-14 15:23:09,896 DEBUG   HandlerThread:1716 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:23:09,896 DEBUG   SenderThread:1716 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:23:14,936 DEBUG   HandlerThread:1716 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:23:14,936 DEBUG   SenderThread:1716 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:23:20,008 DEBUG   HandlerThread:1716 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:23:20,008 DEBUG   SenderThread:1716 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:23:21,945 ERROR   gpu       :1716 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2024-03-14 15:23:21,945 ERROR   gpu       :1716 [interfaces.py:monitor():144] Failed to sample metric: Unknown Error
+2024-03-14 15:23:25,060 DEBUG   HandlerThread:1716 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:23:25,060 DEBUG   SenderThread:1716 [sender.py:send_request():405] send_request: status_report
+2024-03-14 15:23:30,091 DEBUG   HandlerThread:1716 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 15:23:30,091 DEBUG   SenderThread:1716 [sender.py:send_request():405] send_request: status_report
